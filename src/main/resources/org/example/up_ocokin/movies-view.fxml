@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="org.example.up_ocokin.MoviesController">
+    <center>
+        <TableView fx:id="moviesTable" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="titleColumn" prefWidth="200" text="Название" />
+                <TableColumn fx:id="releaseYearColumn" prefWidth="150" text="Год выпуска" />
+                <TableColumn fx:id="runtimeColumn" prefWidth="150" text="Длительность (мин)" />
+                <TableColumn fx:id="genresColumn" prefWidth="150" text="Жанры" />
+                <TableColumn fx:id="countriesColumn" prefWidth="150" text="Страны" />
+                <TableColumn fx:id="reviewsColumn" prefWidth="250" text="Комментарии" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <Button onAction="#onBackButtonClick" text="Назад в главное меню" />
+        </HBox>
+    </bottom>
+</BorderPane>

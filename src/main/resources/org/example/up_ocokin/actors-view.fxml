@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="org.example.up_ocokin.ActorsController">
+    <center>
+        <TableView fx:id="actorsTable" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="firstNameColumn" prefWidth="300" resizable="false" text="Имя" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="300" resizable="false" text="Фамилия" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <Button onAction="#onAddButtonClick" text="Добавить" />
+            <Button onAction="#onEditButtonClick" text="Редактировать" />
+            <Button onAction="#onDeleteButtonClick" text="Удалить" />
+            <Button onAction="#onBackButtonClick" text="Назад в главное меню" />
+        </HBox>
+
+    </bottom>
+</BorderPane>

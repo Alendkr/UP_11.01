@@ -1,0 +1,13 @@
+.table-view .column-header {
+    -fx-font-size: 14px; /* Размер текста в заголовках */
+}
+
+.table-view .cell {
+    -fx-font-size: 12px; /* Размер текста в ячейках */
+    -fx-text-fill: black; /* Цвет текста */
+    -fx-alignment: CENTER_LEFT; /* Выравнивание текста */
+}
+
+.table-view .row-cell:filled:focused {
+    -fx-background-color: #f4f4f4; /* Цвет выделенной строки */
+}

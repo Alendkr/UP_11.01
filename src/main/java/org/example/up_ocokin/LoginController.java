@@ -6,7 +6,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import org.example.up_ocokin.database.DatabaseConnection;
-
+import org.example.up_ocokin.MainApplication;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -29,6 +30,9 @@ public class LoginController {
         if (isValidCredentials(username, password)) {
             // Если логин и пароль правильные, переход к основному окну
             System.out.println("Успешный вход!");
+
+                MainApplication.setRoot("menu-view", "Главное меню");
+
             // Здесь можно закрыть окно авторизации и открыть основное окно
         } else {
             // Если ошибка, показываем сообщение об ошибке
@@ -42,11 +46,6 @@ public class LoginController {
 
     private boolean isValidCredentials(String username, String password) {
         String query = "SELECT COUNT(*) FROM Users WHERE Username = ? AND Password = ?";
-
-        System.out.println("Проверка для логина: " + username + " и пароля: " + password); // Логирование значений
-        // Убираем лишние пробелы
-        username = username.trim();
-        password = password.trim();
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -67,5 +66,4 @@ public class LoginController {
 
         return false; // Если ошибка или нет таких данных
     }
-
 }
